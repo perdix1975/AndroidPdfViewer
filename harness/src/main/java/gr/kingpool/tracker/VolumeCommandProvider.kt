@@ -19,7 +19,9 @@ import androidx.core.app.NotificationCompat
 
 class VolumeCommandProvider : ContentProvider() {
     override fun onCreate(): Boolean {
-        context?.applicationContext?.let(VolumeCommandGesture.install)
+        context?.applicationContext?.let { appContext ->
+            VolumeCommandGesture.install(appContext)
+        }
         return true
     }
     override fun query(uri: Uri, projection: Array<out String>?, selection: String?, selectionArgs: Array<out String>?, sortOrder: String?): Cursor? = null

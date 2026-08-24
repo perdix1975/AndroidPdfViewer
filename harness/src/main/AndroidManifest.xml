@@ -5,11 +5,19 @@
 
     <application
         android:allowBackup="false"
-        android:label="Volume Command Harness"
+        android:label="Volume Trigger Test"
         android:theme="@style/Theme.Material3.DayNight.NoActionBar">
         <activity
+            android:name=".HarnessMainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".VolumeCommandActivity"
-            android:exported="true" />
+            android:exported="false" />
         <provider
             android:name=".VolumeCommandProvider"
             android:authorities="${applicationId}.volume-command-init"

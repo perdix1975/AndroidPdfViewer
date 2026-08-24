@@ -4,13 +4,21 @@ on:
   push:
     branches:
       - 'temp/headset-diagnostic'
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'sample/**'
+      - 'build.gradle'
+      - 'settings.gradle'
+      - '.github/workflows/headset-diagnostic.yml'
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: headset-diagnostic
+  group: headset-diagnostic-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:

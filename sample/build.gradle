@@ -7,11 +7,11 @@ android {
     compileSdk 35
 
     defaultConfig {
-        applicationId 'gr.kingpool.headsetdiag'
+        applicationId 'gr.kingpool.headsetdiag.v2'
         minSdk 26
         targetSdk 35
-        versionCode 3
-        versionName '1.2-z3'
+        versionCode 4
+        versionName '1.3-z3'
     }
 
     sourceSets {

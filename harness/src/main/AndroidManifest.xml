@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <application
+        android:allowBackup="false"
+        android:label="Volume Command Harness"
+        android:theme="@style/Theme.Material3.DayNight.NoActionBar">
+        <activity
+            android:name=".VolumeCommandActivity"
+            android:exported="true" />
+        <provider
+            android:name=".VolumeCommandProvider"
+            android:authorities="${applicationId}.volume-command-init"
+            android:exported="false"
+            android:initOrder="90" />
+    </application>
+</manifest>

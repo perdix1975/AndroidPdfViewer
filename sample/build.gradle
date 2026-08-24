@@ -1,32 +1,27 @@
-buildscript {
-    repositories {
-        google()
-        jcenter()
-    }
+plugins {
+    id 'com.android.application'
 }
-
-repositories {
-    google()
-    jcenter()
-}
-
-apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    namespace 'com.github.barteksc.sample'
+    compileSdk 35
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 28
-        versionCode 3
-        versionName "3.0.0"
+        applicationId 'gr.kingpool.headsetdiag'
+        minSdk 26
+        targetSdk 35
+        versionCode 1
+        versionName '1.0-z3'
     }
 
-}
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+    }
 
-dependencies {
-    implementation project(':android-pdf-viewer')
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'org.androidannotations:androidannotations-api:4.6.0'
-    annotationProcessor "org.androidannotations:androidannotations:4.6.0"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
 }

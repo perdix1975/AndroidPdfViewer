@@ -1,11 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
         android:allowBackup="false"
-        android:label="Headset Diagnostic"
+        android:label="Headset Diagnostic Z3 v2"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Material.Light.NoActionBar">
         <activity
-            android:name=".HeadsetDiagnosticActivity"
+            android:name="com.github.barteksc.sample.HeadsetDiagnosticActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>

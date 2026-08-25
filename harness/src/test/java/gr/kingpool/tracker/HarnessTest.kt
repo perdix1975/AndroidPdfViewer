@@ -50,4 +50,18 @@ class HarnessTest {
         assertEquals(100, ContactVoiceMatcher.score("Παλιός Γιάννης", "Palios Giannis"))
         assertFalse(ContactVoiceMatcher.score("Κλαίρη", "Kostas") >= ContactVoiceMatcher.MIN_SCORE)
     }
+
+    @Test
+    fun codedAndMisspelledContactsMatchPhoneticallyAnywhere() {
+        assertTrue(ContactVoiceMatcher.score("Κλαίρη", "ΜΠ Π Κλαίρη") >= ContactVoiceMatcher.MIN_SCORE)
+        assertTrue(ContactVoiceMatcher.score("Κλαίρη", "ΠΕΛ ΜΠ Klairi Χερσόνησος") >= ContactVoiceMatcher.MIN_SCORE)
+        assertTrue(ContactVoiceMatcher.score("Κλαίρη", "ΜΠ Π Klery") >= ContactVoiceMatcher.MIN_SCORE)
+        assertTrue(ContactVoiceMatcher.score("Γιάννης", "Π ΓΙΑΝΗΣ") >= ContactVoiceMatcher.MIN_SCORE)
+        assertTrue(ContactVoiceMatcher.score("Καθαράκης", "ΜΠ Καταρακης") >= ContactVoiceMatcher.MIN_SCORE)
+        assertTrue(
+            ContactVoiceMatcher.score("Νίκος Καθαράκης", "ΠΕΛ ΜΠ Καθαρακης Νικος") >=
+                ContactVoiceMatcher.MIN_SCORE,
+        )
+        assertFalse(ContactVoiceMatcher.score("Κλαίρη", "ΜΠ Π Κώστας") >= ContactVoiceMatcher.MIN_SCORE)
+    }
 }
